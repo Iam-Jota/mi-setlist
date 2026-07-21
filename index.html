@@ -1,13 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Setlist</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>🎵 Mi Setlist</h1>
-<p id="app"></p>
-<script type="module" src="js/app.js"></script>
+  <div id="app">
+    <div id="banner-corrupcion" hidden>
+      <p>Detectamos un problema con tus datos guardados.</p>
+      <button type="button" id="btn-empezar-de-cero">Empezar de cero</button>
+    </div>
+
+    <header>
+      <h1>Mi Setlist</h1>
+    </header>
+
+    <section aria-label="Buscar canciones">
+      <form id="form-busqueda">
+        <input
+          type="text"
+          id="input-busqueda"
+          placeholder="Buscar por artista o título..."
+          autocomplete="off"
+        >
+        <button type="submit">Buscar</button>
+      </form>
+      <div id="estado-busqueda"></div>
+      <div id="resultados-busqueda"></div>
+      <div id="feedback-agregar"></div>
+    </section>
+
+    <section aria-label="Mis playlists">
+      <h2>Mis playlists</h2>
+      <form id="form-nueva-playlist">
+        <input
+          type="text"
+          id="input-nombre-playlist"
+          placeholder="Nombre de la playlist..."
+          autocomplete="off"
+        >
+        <button type="submit">Nueva playlist</button>
+      </form>
+
+      <div id="error-playlist"></div>
+      <ul id="lista-playlists"></ul>
+      <div id="detalle-playlist"></div>
+      <div id="control-orden" hidden>
+        <label for="select-orden">Ordenar por:</label>
+        <select id="select-orden">
+          <option value="agregado">Orden de agregado</option>
+          <option value="recientes">Más recientes primero</option>
+          <option value="antiguas">Más antiguas primero</option>
+          <option value="alfabetico">Alfabético</option>
+        </select>
+      </div>
+    </section>
+
+    <div id="modal-confirmacion" hidden>
+      <div class="modal-contenido">
+        <p id="modal-mensaje"></p>
+        <button type="button" id="modal-cancelar">Cancelar</button>
+        <button type="button" id="modal-confirmar">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
